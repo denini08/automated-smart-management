@@ -14,7 +14,8 @@ def find_all_test_playbooks():
 
 ALL_TEST_PLAYBOOKS = list(find_all_test_playbooks())
 TEST_PLAYBOOKS = sorted([playbook for playbook in ALL_TEST_PLAYBOOKS if not playbook.startswith('inventory_plugin')])
-INVENTORY_PLAYBOOKS = sorted(set(ALL_TEST_PLAYBOOKS) - set(TEST_PLAYBOOKS))
+TEST_PLAYBOOKS_SET = set(TEST_PLAYBOOKS)
+INVENTORY_PLAYBOOKS = sorted(set(ALL_TEST_PLAYBOOKS) - TEST_PLAYBOOKS_SET)
 
 
 def pytest_addoption(parser):

@@ -1,7 +1,7 @@
 import py.path
 import pytest
 
-from .conftest import TEST_PLAYBOOKS
+from .conftest import TEST_PLAYBOOKS_SET
 
 MODULES_PATH = py.path.local(__file__).realpath() / '..' / '..' / 'plugins' / 'modules'
 
@@ -22,7 +22,7 @@ def _module_file_path(module):
 
 
 def _module_is_tested(module):
-    return module in TEST_PLAYBOOKS
+    return module in TEST_PLAYBOOKS_SET
 
 
 @pytest.mark.parametrize('module', ALL_MODULES)
